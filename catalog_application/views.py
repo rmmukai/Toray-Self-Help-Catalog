@@ -10,3 +10,7 @@ def admin_page(request):
 
 def home_page(request):
     return render(request, 'home_page.html')
+
+def add_self_help_article(request):
+    return render(request, 'add_self_help_article.html')
+
