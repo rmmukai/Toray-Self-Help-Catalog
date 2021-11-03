@@ -4,27 +4,54 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
             rel="stylesheet"
             href="{% static 'css\add_self_help_article.css' %}"
         />
-        <title>Desktop Links</title>
+        <title>Add Self Help Article</title>
     </head>
 
     <body>
-        <div id="wrapper">
-            <div class="header">
-                <!-- Images need to be addressed -->
-                <a href="TBD"
-                    ><img class="logo" src="static\images\temp_image.jpeg" />
-                </a>
+        <h1>Add a Self Help Article</h1>
 
-                <img class="banner" src="static\images\temp-banner.jpg" />
+        <!-- This is where the error messages will appear -->
+        {% if messages %}
+        <div>
+            {% for message in messages %}
+            <p>- {{message}} -</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <form action="/admin_page/create_article" method="post">
+            {% csrf_token %}
+
+            <div>
+                <label for="title">Title of Article</label>
+                <input type="text" name="title" id="title" />
             </div>
 
-            <div class="main_content"></div>
-        </div>
+            <div>
+                <label for="created_by">Created By</label>
+                <input type="text" name="created_by" id="created_by" />
+            </div>
+
+            <div>
+                <label for="description">Description</label>
+                <input type="text" name="description" id="description" />
+            </div>
+
+            <div>
+                <label for="document_location">Document Location</label>
+                <input
+                    type="text"
+                    name="document_location"
+                    id="document_location"
+                />
+            </div>
+
+            <button class="submitButton">Add Article</button>
+        </form>
     </body>
 </html>
