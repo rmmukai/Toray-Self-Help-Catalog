@@ -15,6 +15,10 @@ def home_page(request):
     return render(request, 'home_page.html')
 
 
+def all_self_help_articles(request):
+    return render(request, 'all_self_help_articles.html')
+
+
 def add_self_help_article(request):
     return render(request, 'add_self_help_article.html')
 
