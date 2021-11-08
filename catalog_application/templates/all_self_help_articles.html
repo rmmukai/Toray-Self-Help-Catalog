@@ -17,17 +17,25 @@
         <div id="wrapper">
             <div class="header">
                 <!-- Images need to be addressed -->
-                <a href="TBD"
-                    ><img class="logo" src="static\images\temp_image.jpeg" />
+                <a href="TBD">
+                    <img
+                        class="logo"
+                        src="{% static 'images\temp_image.jpeg' %}"
+                    />
                 </a>
 
-                <img class="banner" src="static\images\temp-banner.jpg" />
+                <img
+                    class="banner"
+                    src="{% static 'images\temp_banner.jpg' %}"
+                />
             </div>
 
-            <div class="main_content"></div>
-            <a href="/admin_page/all_self_help_articles/add_self_help_article"
-                >Add Self Help Article</a
-            >
+            <div class="main_content">
+                <a
+                    href="/admin_page/all_self_help_articles/add_self_help_article"
+                    >Add Self Help Article</a
+                >
+            </div>
         </div>
     </body>
 </html>

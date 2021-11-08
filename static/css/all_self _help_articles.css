@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    width: 1920px;
+    height: 1080px;
+    margin: 8px;
+}
+
+.header .logo {
+    width: 15rem;
+    height: auto;
+}
+
+.banner {
+    width: 35rem;
+    height: 5rem;
+}
+
+.main_content {
+    padding-top: 0.2rem;
+}
+
+.main_content .main_image {
+    width: 30rem;
+    height: auto;
+}
