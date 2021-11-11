@@ -18,6 +18,7 @@ class SelfHelpArticleManager(models.Manager):
 class SelfHelpArticle(models.Model):
     title = models.CharField(max_length=100)
     created_by = models.CharField(max_length=50)
+    last_updated_by = models.CharField(max_length=50)
     description = models.TextField
     document_location = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)

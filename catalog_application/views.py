@@ -16,7 +16,10 @@ def home_page(request):
 
 
 def all_self_help_articles(request):
-    return render(request, 'all_self_help_articles.html')
+    context = {
+        'self_help_articles': SelfHelpArticle.objects.all()
+    }
+    return render(request, 'all_self_help_articles.html', context)
 
 
 def add_self_help_article(request):
@@ -37,5 +40,5 @@ def create_article(request):
             description=request.POST['description'],
             document_location=request.POST['document_location'],
         )
-        return redirect('/admin_page')
+        return redirect('/admin_page/all_self_help_articles')
 

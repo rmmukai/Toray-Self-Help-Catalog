@@ -15,8 +15,7 @@
 
     <body>
         <div id="wrapper">
-            <div class="header">
-                <!-- Images need to be addressed -->
+            <!-- <div class="header">
                 <a href="TBD">
                     <img
                         class="logo"
@@ -28,13 +27,38 @@
                     class="banner"
                     src="{% static 'images\temp_banner.jpg' %}"
                 />
-            </div>
+            </div> -->
 
             <div class="main_content">
                 <a
                     href="/admin_page/all_self_help_articles/add_self_help_article"
                     >Add Self Help Article</a
                 >
+
+                <div class="all_articles">
+                    <table class="all_articles">
+                        <thead class="column_names">
+                            <tr>
+                                <th>Name of Article</th>
+                                <th>Created By</th>
+                                <th>Last Updated By</th>
+                                <th>Document Location</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        {% for articles in self_help_articles %}
+                        <tbody>
+                            <tr>
+                                <th>{{ articles.title }}</th>
+                                <th>{{ articles.created_by }}</th>
+                                <th>{{ articles.last_updated_by }}</th>
+                                <th>{{ articles.document_location}}</th>
+                                <th>Edit or Delete</th>
+                            </tr>
+                        </tbody>
+                        {% endfor %}
+                    </table>
+                </div>
             </div>
         </div>
     </body>
