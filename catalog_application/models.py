@@ -8,6 +8,8 @@ class SelfHelpArticleManager(models.Manager):
             errors['title'] = "Please add an appropriate title for this article."
         if len(postData['created_by']) < 1:
             errors['created_by'] = "Please input your name or the creator of this article."
+        if len(postData['last_updated_by']) < 1:
+            errors['created_by'] = "Please input your name or the person who updated this article."
         if len(postData['description']) < 1:
             errors['description'] = "Please write a short description about the article."
         if len(postData['document_location']) < 1:

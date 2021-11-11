@@ -32,7 +32,7 @@ def create_article(request):
     if len(errors) > 0:
         for key, value in errors.items():
             messages.error(request, value)
-        return redirect('/admin_page/add_self_help_article')
+        return redirect('/admin_page/all_self_help_articles/add_self_help_article')
     else:
         new_self_help_articles = SelfHelpArticle.objects.create(
             title=request.POST['title'],
