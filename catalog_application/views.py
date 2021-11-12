@@ -36,7 +36,7 @@ def create_article(request):
     else:
         new_self_help_articles = SelfHelpArticle.objects.create(
             title=request.POST['title'],
-            created_by=request.POST['created_by'],
+            last_updated_by=request.POST['last_updated_by'],
             description=request.POST['description'],
             document_location=request.POST['document_location'],
         )

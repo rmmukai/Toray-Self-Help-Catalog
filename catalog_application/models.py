@@ -6,8 +6,6 @@ class SelfHelpArticleManager(models.Manager):
         errors = {}
         if len(postData['title']) < 1:
             errors['title'] = "Please add an appropriate title for this article."
-        if len(postData['created_by']) < 1:
-            errors['created_by'] = "Please input your name or the creator of this article."
         if len(postData['last_updated_by']) < 1:
             errors['created_by'] = "Please input your name or the person who updated this article."
         if len(postData['description']) < 1:
@@ -19,7 +17,6 @@ class SelfHelpArticleManager(models.Manager):
 
 class SelfHelpArticle(models.Model):
     title = models.CharField(max_length=100)
-    created_by = models.CharField(max_length=50)
     last_updated_by = models.CharField(max_length=50)
     description = models.TextField
     document_location = models.CharField(max_length=100)

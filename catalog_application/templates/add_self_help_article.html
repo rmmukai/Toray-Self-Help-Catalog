@@ -37,7 +37,7 @@
             </div>
             {% endif %}
 
-            <form action="admin_page/all_self_help_articles/create_article" method="post">
+            <form action="/admin_page/all_self_help_articles/create_article" method="post">
                 {% csrf_token %}
 
                 <div>
@@ -46,8 +46,8 @@
                 </div>
 
                 <div>
-                    <label for="created_by">Created By</label>
-                    <input type="text" name="created_by" id="created_by" />
+                    <label for="last_updated_by">Created By</label>
+                    <input type="text" name="last_updated_by" id="last_updated_by" />
                 </div>
 
                 <div>
