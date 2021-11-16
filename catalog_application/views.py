@@ -52,7 +52,7 @@ def edit_articles(request, self_help_article_id):
     return render(request, 'edit_self_help_articles.html', context)
 
 
-def update_article(request, self_help_article_id):
+def update_articles(request, self_help_article_id):
     db_self_help_article = SelfHelpArticle.objects.get(id=self_help_article_id)
 
     errors = SelfHelpArticle.objects.self_help_article_validator(request.POST)
