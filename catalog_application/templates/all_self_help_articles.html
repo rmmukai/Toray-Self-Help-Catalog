@@ -51,7 +51,12 @@
                                 <th>{{ articles.title }}</th>
                                 <th>{{ articles.last_updated_by }}</th>
                                 <th>{{ articles.document_location}}</th>
-                                <th>Edit or Delete</th>
+                                <td>
+                                    <a
+                                        href="/admin_page/all_self_help_articles/{{ articles.id }}/edit_article"
+                                        >Edit</a
+                                    >
+                                </td>
                             </tr>
                         </tbody>
                         {% endfor %}

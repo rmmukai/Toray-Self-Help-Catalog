@@ -42,3 +42,37 @@ def create_article(request):
         )
         return redirect('/admin_page/all_self_help_articles')
 
+
+def edit_articles(request, self_help_article_id):
+    db_articles = SelfHelpArticle.objects.get(id=self_help_article_id)
+
+    context = {
+        'self_help_articles': db_articles
+    }
+    return render(request, 'edit_self_help_articles.html', context)
+
+
+def update_article(request, self_help_article_id):
+    db_self_help_article = SelfHelpArticle.objects.get(id=self_help_article_id)
+
+    errors = SelfHelpArticle.objects.self_help_article_validator(request.POST)
+    if len(errors) > 0:
+        for key, value in errors.items():
+            messages.error(request, value)
+        return redirect(f'/admin_page/{db_self_help_article.id}/edit_articles')
+    else:
+        # data from the post into variable
+        post_title = request.POST.get('title')
+        post_last_updated_by = request.POST.get('last_updated_by')
+        post_description = request.POST.get('description')
+        post_document_location = request.POST.get('document_location')
+
+        # Update the fields in the database object.
+        db_self_help_article.title = post_title
+        db_self_help_article.last_updated_by = post_last_updated_by
+        db_self_help_article.description = post_description
+        db_self_help_article.document_location = post_document_location
+
+        db_self_help_article.save()
+
+        return redirect('/admin_page/all_self_help_articles')

@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="{% static 'css\edit_self_help_article.css' %}"
+        />
+        <title>Edit Self Help Article</title>
+    </head>
+
+    <body>
+        <div class="wrapper"></div>
+            <div class="header">
+                <!-- Images need to be addressed -->
+                <a href="TBD">
+                    <img
+                        class="logo"
+                        src="{% static 'images\temp_image.jpeg' %}"
+                    />
+                </a>
+
+                <img class="banner" src="{% static 'images\temp_banner.jpg' %}" />
+            </div>
+            
+            <h1>Edit a Self Help Article</h1>
+
+            <!-- This is where the error messages will appear -->
+            {% if messages %}
+            <div>
+                {% for message in messages %}
+                <p>- {{message}} -</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <form action="/admin_page/all_self_help_articles/create_article" method="post">
+                {% csrf_token %}
+
+                <div>
+                    <label for="title">Title of Article</label>
+                    <input type="text" name="title" id="title" />
+                </div>
+
+                <div>
+                    <label for="last_updated_by">Updated By</label>
+                    <input type="text" name="last_updated_by" id="last_updated_by" />
+                </div>
+
+                <div>
+                    <label for="description">Description</label>
+                    <input type="text" name="description" id="description" />
+                </div>
+
+                <div>
+                    <label for="document_location">Document Location</label>
+                    <input
+                        type="text"
+                        name="document_location"
+                        id="document_location"
+                    />
+                </div>
+
+                <button class="submitButton">Edit Article</button>
+            </form>
+        </div>
+    </body>
+</html>
