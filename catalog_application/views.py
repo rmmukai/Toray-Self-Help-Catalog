@@ -59,7 +59,7 @@ def update_articles(request, self_help_article_id):
     if len(errors) > 0:
         for key, value in errors.items():
             messages.error(request, value)
-        return redirect(f'/admin_page/{db_self_help_article.id}/edit_articles')
+        return redirect(f'/admin_page/all_self_help_articles/{db_self_help_article.id}/edit_articles')
     else:
         # data from the post into variable
         post_title = request.POST.get('title')

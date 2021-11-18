@@ -14,9 +14,9 @@
 
     <body>
         <div class="wrapper"></div>
-            <div class="header">
+            <!-- <div class="header"> -->
                 <!-- Images need to be addressed -->
-                <a href="TBD">
+                <!-- <a href="TBD">
                     <img
                         class="logo"
                         src="{% static 'images\temp_image.jpeg' %}"
@@ -25,8 +25,8 @@
 
                 <img class="banner" src="{% static 'images\temp_banner.jpg' %}" />
             </div>
-            
-            <h1>Edit a Self Help Article</h1>
+             -->
+            <h1>Edit {{ self_help_articles.title }}</h1>
 
             <!-- This is where the error messages will appear -->
             {% if messages %}
@@ -37,22 +37,22 @@
             </div>
             {% endif %}
 
-            <form action="/admin_page/all_self_help_articles/create_article" method="post">
+            <form action="/admin_page/all_self_help_articles/{{ self_help_articles.id }}/update_articles" method="post">
                 {% csrf_token %}
 
                 <div>
                     <label for="title">Title of Article</label>
-                    <input type="text" name="title" id="title" />
+                    <input type="text" name="title" id="title" value="{{ self_help_articles.title }}" />
                 </div>
 
                 <div>
                     <label for="last_updated_by">Updated By</label>
-                    <input type="text" name="last_updated_by" id="last_updated_by" />
+                    <input type="text" name="last_updated_by" id="last_updated_by" value="{{ self_help_articles.last_updated_by }}" />
                 </div>
 
                 <div>
                     <label for="description">Description</label>
-                    <input type="text" name="description" id="description" />
+                    <input type="text" name="description" id="description" value="{{ self_help_articles.description }}" />
                 </div>
 
                 <div>
@@ -61,6 +61,7 @@
                         type="text"
                         name="document_location"
                         id="document_location"
+                        value="{{ self_help_articles.document_location }}"
                     />
                 </div>
 
