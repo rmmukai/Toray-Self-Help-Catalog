@@ -8,14 +8,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
             rel="stylesheet"
-            href="{% static 'css\all_self_help_articles.css' %}"
+            href="{% static 'css\all_self _help_articles.css' %}"
         />
         <title>All Self Help Articles</title>
     </head>
 
     <body>
         <div id="wrapper">
-            <!-- <div class="header">
+            <div class="header">
                 <a href="TBD">
                     <img
                         class="logo"
@@ -27,7 +27,7 @@
                     class="banner"
                     src="{% static 'images\temp_banner.jpg' %}"
                 />
-            </div> -->
+            </div>
 
             <div class="main_content">
                 <a
@@ -54,8 +54,17 @@
                                 <td>
                                     <a
                                         href="/admin_page/all_self_help_articles/{{ articles.id }}/edit_articles"
-                                        >Edit</a
+                                        >Edit |</a
                                     >
+
+                                    <a href="">Delete</a>
+                                    <div class="hidden delete_window">
+                                        <p>
+                                            Would you like to delete this
+                                            article?
+                                        </p>
+                                        <button></button>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -65,4 +74,5 @@
             </div>
         </div>
     </body>
+    <script src="{% static 'javascript\all_self_help_articles.js' %}"></script>
 </html>
