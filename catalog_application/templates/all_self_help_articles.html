@@ -57,13 +57,14 @@
                                         >Edit |</a
                                     >
 
-                                    <a href="">Delete</a>
+                                    <a href="" class="delete_link">Delete</a>
                                     <div class="hidden delete_window">
                                         <p>
                                             Would you like to delete this
                                             article?
                                         </p>
-                                        <button></button>
+                                        <button>Yes</button>
+                                        <button>No</button>
                                     </div>
                                 </td>
                             </tr>
@@ -73,6 +74,7 @@
                 </div>
             </div>
         </div>
+        <div class="hidden overlay"></div>
+        <script src="{% static 'javascript\all_self_help_articles.js' %}"></script>
     </body>
-    <script src="{% static 'javascript\all_self_help_articles.js' %}"></script>
 </html>
