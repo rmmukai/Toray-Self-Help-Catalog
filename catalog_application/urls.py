@@ -10,5 +10,6 @@ urlpatterns = [
     path('admin_page/all_self_help_articles/create_article', views.create_article),
     path('admin_page/all_self_help_articles/<self_help_article_id>/edit_articles', views.edit_articles),
     path('admin_page/all_self_help_articles/<self_help_article_id>/update_articles', views.update_articles),
+    path('admin_page/all_self_help_articles/<self_help_article_id>/delete_articles', views.delete_articles)
 ]
 

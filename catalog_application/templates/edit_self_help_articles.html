@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
             rel="stylesheet"
-            href="{% static 'css\edit_self_help_article.css' %}"
+            href="{% static 'css\edit_self_help_articles.css' %}"
         />
         <title>Edit Self Help Article</title>
     </head>
@@ -65,8 +65,21 @@
                     />
                 </div>
 
+                <a class="delete_link" href="">Delete Article</a>
+
+                    <div class="delete_window hidden">
+                        <p>
+                            Would you like to delete this
+                            article?
+                        </p>
+                        <button>Yes</button>
+                        <button>No</button>
+                    </div>
+
                 <button class="submitButton">Edit Article</button>
             </form>
         </div>
+        <div class="overlay hidden"></div>
     </body>
+    <script src="{% static 'javascript\edit_self_help_articles.js' %}"></script>
 </html>

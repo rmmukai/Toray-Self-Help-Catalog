@@ -42,7 +42,7 @@
                                 <th>Name of Article</th>
                                 <th>Last Updated By</th>
                                 <th>Document Location</th>
-                                <th>Actions</th>
+                                <th>Edit Article</th>
                             </tr>
                         </thead>
                         {% for articles in self_help_articles %}
@@ -54,18 +54,8 @@
                                 <td>
                                     <a
                                         href="/admin_page/all_self_help_articles/{{ articles.id }}/edit_articles"
-                                        >Edit |</a
+                                        >Edit</a
                                     >
-
-                                    <a href="" class="delete_link">Delete</a>
-                                    <div class="delete_window hidden">
-                                        <p>
-                                            Would you like to delete this
-                                            article?
-                                        </p>
-                                        <button>Yes</button>
-                                        <button>No</button>
-                                    </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -74,7 +64,5 @@
                 </div>
             </div>
         </div>
-        <div class="overlay hidden"></div>
     </body>
-    <script src="{% static 'javascript\all_self_help_articles.js' %}"></script>
 </html>

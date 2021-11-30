@@ -76,3 +76,11 @@ def update_articles(request, self_help_article_id):
         db_self_help_article.save()
 
         return redirect('/admin_page/all_self_help_articles')
+
+def delete_articles(request, self_help_article_id):
+    self_help_article = SelfHelpArticle.objects.get(id=self_help_article_id)
+    self_help_article.delete()
+
+    return redirect('/admin_page/all_self_help_articles')
+
+
