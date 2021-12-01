@@ -2,9 +2,9 @@
 
 // delete_link class related
 // This "link" is blank, not connecting to anywhere
-const deleteLink = document.querySelector("delete_link");
-const overlay = document.querySelector("overlay");
-const deleteWindow = document.querySelector("delete_window");
+const deleteBtn = document.querySelector(".delete_btn");
+const overlay = document.querySelector(".overlay");
+const deleteWindow = document.querySelector(".delete_window");
 
 // Function for "turning on" the popup window
 const deleteWindowOn = function () {
@@ -18,5 +18,13 @@ const deleteWindowOff = function () {
     deleteWindow.classList.add("hidden");
 };
 
-// When clicking the delete delete link
-deleteLink.addEventListener("click", deleteWindowOn);
+// When clicking the delete button
+deleteBtn.addEventListener("click", deleteWindowOn);
+
+// Closing the popup window
+const noBtn = document.querySelector(".no_btn");
+const closeBtn = document.querySelector(".close_btn");
+
+overlay.addEventListener("click", deleteWindowOff);
+noBtn.addEventListener("click", deleteWindowOff);
+closeBtn.addEventListener("click", deleteWindowOff);

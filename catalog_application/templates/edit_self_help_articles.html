@@ -65,21 +65,24 @@
                     />
                 </div>
 
-                <a class="delete_link" href="">Delete Article</a>
+                <button class="submitButton">Edit Article</button>
+            </form>
+
+            <button class="delete_btn">Delete Article</button>
 
                     <div class="delete_window hidden">
+                        <button class="close_btn">&times;</button>
                         <p>
                             Would you like to delete this
                             article?
                         </p>
-                        <button>Yes</button>
-                        <button>No</button>
+
+                        <button class="delete_link"><a href="/admin_page/all_self_help_articles/{{ self_help_articles.id }}/delete_articles">Yes</a></button>
+                        <button class="no_btn">No</button>
                     </div>
 
-                <button class="submitButton">Edit Article</button>
-            </form>
         </div>
-        <div class="overlay hidden"></div>
+    <div class="overlay hidden"></div>
     </body>
     <script src="{% static 'javascript\edit_self_help_articles.js' %}"></script>
 </html>
