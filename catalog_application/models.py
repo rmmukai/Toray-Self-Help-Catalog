@@ -18,9 +18,26 @@ class SelfHelpArticleManager(models.Manager):
 class SelfHelpArticle(models.Model):
     title = models.CharField(max_length=100)
     last_updated_by = models.CharField(max_length=50)
-    description = models.CharField(max_length=800)
+    description = models.CharField(max_length=1000)
     document_location = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     objects = SelfHelpArticleManager()
+
+class SuggestionMessageManager(models.Manager):
+    def suggestion_message_validator(self, postData):
+        errors = {}
+        if len(postData['submitted_by']) < 1:
+            errors['submitted_by'] = "Please type your name."
+        if len(postData['message']) < 5:
+            errors['message'] = "Please type a detailed description of your suggestion."
+        return errors
+
+class SuggestionMessage(models.Model):
+    submitted_by = models.CharField(max_length=50)
+    message = models.CharField(max_length=1000)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    objects = SuggestionMessageManager()

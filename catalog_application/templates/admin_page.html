@@ -27,8 +27,47 @@
                 />
             </div>
 
-            <div class="main_content"></div>
-            <a href="/admin_page/all_self_help_articles">Self Help Articles</a>
-        </div>
+            <div class="main_content">
+                <div class="self_help_article_section">
+                    <h3>Self Help Articles</h3>
+
+                    <p>Use the below link to add, delete, and edit self help articles in the catalog.</p>
+
+                    <a href="/admin_page/all_self_help_articles">Self Help Articles</a>
+                </div>
+            </div>
+
+            <div class="suggestion_message_section">
+                <h3>Suggestion Messages</h3>
+
+                <p>These are notes, suggestions, and messages from our users to try and better the experience they have with the Self Help Catalog.</p>
+
+                <div class="suggestion_messages">
+                    <table class="suggestion_messages">
+                        <thead class="column_names">
+                            <tr>
+                                <th>Submitted By</th>
+                                <th>Date Submitted</th>
+                                <th>View Messages</th>
+                            </tr>
+                        </thead>
+                        {% for messages in suggestion_messages %}
+                        <tbody>
+                            <tr>
+                                <th>{{ articles.title }}</th>
+                                <th>{{ articles.last_updated_by }}</th>
+                                <th>{{ articles.document_location}}</th>
+                                <td>
+                                    <a
+                                        href="/admin_page/all_self_help_articles/{{ articles.id }}/edit_articles"
+                                        >Edit</a
+                                    >
+                                </td>
+                            </tr>
+                        </tbody>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
     </body>
 </html>
