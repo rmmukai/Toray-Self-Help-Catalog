@@ -83,4 +83,19 @@ def delete_articles(request, self_help_article_id):
 
     return redirect('/admin_page/all_self_help_articles')
 
+def add_suggestion_message(request):
+    return render(request, 'suggestion_message.html')
 
+def create_suggestion(request ):
+    # Error/validator messages found in models.py.
+    errors = SuggestionMessage.objects.suggestion_message_validator(request.POST)
+    if len(errors) > 0:
+        for key, value in errors.items():
+            messages.error(request, value)
+        return redirect('/home_page/suggestion_message')
+    else:
+        new_suggestion = SuggestionMessage.objects.create(
+            submitted_by=request.POST['submitted_by'],
+            message=request.POST['message'],
+        )
+        return redirect('')

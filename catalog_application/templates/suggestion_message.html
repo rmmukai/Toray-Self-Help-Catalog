@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="{% static 'css\suggestion_message.css' %}"
+        />
+        <title>Send Suggestions</title>
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <div class="header">
+                <!-- Images need to be addressed -->
+                <a href="TBD">
+                    <img
+                        class="logo"
+                        src="{% static 'images\temp_image.jpeg' %}"
+                    />
+                </a>
+
+                <img
+                    class="banner"
+                    src="{% static 'images\temp_banner.jpg' %}"
+                />
+            </div>
+
+            <div class="main_content">
+                <div class="side_nav">
+                    <a href="/home_page/suggestion_message"
+                        >Have a suggestion?</a
+                    >
+                </div>
+
+                <div>
+                    <h1>Have a suggestion?</h1>
+                    <p>
+                        If you have any suggestions of information you want to
+                        see in the IT Self Help Catalog please submit a
+                        suggestion and one of our IT staff will address it.
+                    </p>
+
+                    <!-- This is where the error messages will appear -->
+                    {% if messages %}
+                    <div>
+                        {% for message in messages %}
+                        <p>- {{message}} -</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    <form action="/home_page/create_suggestion" method="post">
+                        {% csrf_token %}
+
+                        <div>
+                            <label for="message"
+                                >Please type a detailed description of your
+                                suggestion</label
+                            >
+                            <input type="text" name="message" id="message" />
+                        </div>
+
+                        <div>
+                            <label for="submitted_by">Submitted By</label>
+                            <input
+                                type="text"
+                                name="submitted_by"
+                                id="submitted_by"
+                            />
+                        </div>
+
+                        <button class="submitButton">Send Suggestion</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
