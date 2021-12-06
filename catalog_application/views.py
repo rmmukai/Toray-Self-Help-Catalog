@@ -8,7 +8,10 @@ def desktop_links(request):
 
 
 def admin_page(request):
-    return render(request, 'admin_page.html')
+    context = {
+        'suggestion_messages': SuggestionMessage.objects.all()
+    }
+    return render(request, 'admin_page.html', context)
 
 
 def home_page(request):
@@ -77,25 +80,37 @@ def update_articles(request, self_help_article_id):
 
         return redirect('/admin_page/all_self_help_articles')
 
+
 def delete_articles(request, self_help_article_id):
     self_help_article = SelfHelpArticle.objects.get(id=self_help_article_id)
     self_help_article.delete()
 
     return redirect('/admin_page/all_self_help_articles')
 
-def add_suggestion_message(request):
-    return render(request, 'suggestion_message.html')
 
-def create_suggestion(request ):
+def add_suggestion_message(request):
+    return render(request, 'send_suggestion_message.html')
+
+
+def create_suggestion(request):
     # Error/validator messages found in models.py.
     errors = SuggestionMessage.objects.suggestion_message_validator(request.POST)
     if len(errors) > 0:
         for key, value in errors.items():
             messages.error(request, value)
-        return redirect('/home_page/suggestion_message')
+        return redirect('/home_page/send_suggestion_message')
     else:
         new_suggestion = SuggestionMessage.objects.create(
             submitted_by=request.POST['submitted_by'],
             message=request.POST['message'],
         )
-        return redirect('')
+        return redirect('/home_page')
+
+
+def view_suggestion_message(request, suggestion_message_id):
+    db_suggestion_messages = SuggestionMessage.objects.get(id=suggestion_message_id)
+
+    context = {
+        'suggestion_messages': db_suggestion_messages
+    }
+    return render(request, 'view_suggestion.html', context)

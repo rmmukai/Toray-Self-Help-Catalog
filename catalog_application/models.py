@@ -25,6 +25,7 @@ class SelfHelpArticle(models.Model):
 
     objects = SelfHelpArticleManager()
 
+
 class SuggestionMessageManager(models.Manager):
     def suggestion_message_validator(self, postData):
         errors = {}
@@ -33,6 +34,7 @@ class SuggestionMessageManager(models.Manager):
         if len(postData['message']) < 5:
             errors['message'] = "Please type a detailed description of your suggestion."
         return errors
+
 
 class SuggestionMessage(models.Model):
     submitted_by = models.CharField(max_length=50)

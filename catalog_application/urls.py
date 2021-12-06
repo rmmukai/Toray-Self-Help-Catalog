@@ -13,5 +13,5 @@ urlpatterns = [
     path('admin_page/all_self_help_articles/<self_help_article_id>/delete_articles', views.delete_articles),
     path('home_page/suggestion_message', views.add_suggestion_message),
     path('home_page/create_suggestion', views.create_suggestion),
+    path('admin_page/<suggestion_message_id>/view_suggestion_message', views.view_suggestion_message),
 ]
-

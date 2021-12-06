@@ -40,7 +40,7 @@
             <div class="suggestion_message_section">
                 <h3>Suggestion Messages</h3>
 
-                <p>These are notes, suggestions, and messages from our users to try and better the experience they have with the Self Help Catalog.</p>
+                <p>These are notes, suggestions, and messages from our users to try and better the experience they have with the Toray IT Self Help Catalog.</p>
 
                 <div class="suggestion_messages">
                     <table class="suggestion_messages">
@@ -51,16 +51,15 @@
                                 <th>View Messages</th>
                             </tr>
                         </thead>
-                        {% for messages in suggestion_messages %}
+                        {% for message in suggestion_messages %}
                         <tbody>
                             <tr>
-                                <th>{{ articles.title }}</th>
-                                <th>{{ articles.last_updated_by }}</th>
-                                <th>{{ articles.document_location}}</th>
+                                <th>{{ message.submitted_by }}</th>
+                                <th>{{ message.created_at }}</th>
                                 <td>
                                     <a
-                                        href="/admin_page/all_self_help_articles/{{ articles.id }}/edit_articles"
-                                        >Edit</a
+                                        href="/admin_page/{{ message.id }}/view_suggestion_message"
+                                        >View Message</a
                                     >
                                 </td>
                             </tr>

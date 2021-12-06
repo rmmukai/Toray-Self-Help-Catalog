@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="{% static 'css\view_suggestion.css' %}" />
+        <title>View Suggestion Message</title>
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <div class="header">
+                <!-- Images need to be addressed -->
+                <a href="TBD">
+                    <img
+                        class="logo"
+                        src="{% static 'images\temp_image.jpeg' %}"
+                    />
+                </a>
+
+                <img
+                    class="banner"
+                    src="{% static 'images\temp_banner.jpg' %}"
+                />
+            </div>
+
+            <div class="main_content">
+                <div class="suggestion_message">
+                    <h6>Submitted By: {{ suggestion_messages.submitted_by }}</h5>
+                    <h6>Date Submitted: {{ suggestion_messages.created_at }}</h6>
+
+                    <div>
+                        <p>{{ suggestion_messages.message }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
