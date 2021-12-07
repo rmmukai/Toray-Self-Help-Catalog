@@ -114,3 +114,11 @@ def view_suggestion_message(request, suggestion_message_id):
         'suggestion_messages': db_suggestion_messages
     }
     return render(request, 'view_suggestion.html', context)
+
+
+def delete_suggestion_message(request, suggestion_message_id):
+    suggestion_message = SuggestionMessage.objects.get(id=suggestion_message_id)
+    suggestion_message.delete()
+
+    return redirect('/admin_page')
+

@@ -29,14 +29,38 @@
 
             <div class="main_content">
                 <div class="suggestion_message">
-                    <h6>Submitted By: {{ suggestion_messages.submitted_by }}</h5>
-                    <h6>Date Submitted: {{ suggestion_messages.created_at }}</h6>
+                    <h6>
+                        Submitted By: {{ suggestion_messages.submitted_by }}
+                    </h6>
+                    <h6>
+                        Date Submitted: {{ suggestion_messages.created_at }}
+                    </h6>
 
                     <div>
                         <p>{{ suggestion_messages.message }}</p>
                     </div>
                 </div>
+
+                <button class="delete_btn">Delete Message</button>
+
+                <div class="delete_window hidden">
+                    <button class="close_btn">&times;</button>
+                    <p>
+                        Would you like to delete this message? Deleting this
+                        message will permanentely this message.
+                    </p>
+
+                    <button class="delete_link">
+                        <a
+                            href="/admin_page/{{ suggestion_message.id }}/delete_suggestion_message"
+                            >Yes</a
+                        >
+                    </button>
+                    <button class="no_btn">No</button>
+                </div>
             </div>
         </div>
+        <div class="overlay hidden"></div>
     </body>
+    <script src="{% static 'javascript\view_suggestion.js' %}"></script>
 </html>
