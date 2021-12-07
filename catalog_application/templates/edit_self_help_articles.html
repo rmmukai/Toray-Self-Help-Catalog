@@ -14,18 +14,21 @@
 
     <body>
         <div class="wrapper"></div>
-            <!-- <div class="header"> -->
+            <div class="header">
                 <!-- Images need to be addressed -->
-                <!-- <a href="TBD">
+                <a href="TBD">
                     <img
                         class="logo"
                         src="{% static 'images\temp_image.jpeg' %}"
                     />
                 </a>
 
-                <img class="banner" src="{% static 'images\temp_banner.jpg' %}" />
+                <img
+                    class="banner"
+                    src="{% static 'images\temp_banner.jpg' %}"
+                />
             </div>
-             -->
+            
             <h1>Edit {{ self_help_articles.title }}</h1>
 
             <!-- This is where the error messages will appear -->
@@ -70,16 +73,16 @@
 
             <button class="delete_btn">Delete Article</button>
 
-                    <div class="delete_window hidden">
-                        <button class="close_btn">&times;</button>
-                        <p>
-                            Would you like to delete this
-                            article?
-                        </p>
+                <div class="delete_window hidden">
+                    <button class="close_btn">&times;</button>
+                    <p>
+                        Would you like to delete this
+                        article?
+                    </p>
 
-                        <button class="delete_link"><a href="/admin_page/all_self_help_articles/{{ self_help_articles.id }}/delete_articles">Yes</a></button>
-                        <button class="no_btn">No</button>
-                    </div>
+                    <button class="delete_link"><a href="/admin_page/all_self_help_articles/{{ self_help_articles.id }}/delete_articles">Yes</a></button>
+                    <button class="no_btn">No</button>
+                </div>
 
         </div>
     <div class="overlay hidden"></div>
