@@ -58,7 +58,7 @@
                     <input type="text" name="description" id="description" value="{{ self_help_articles.description }}" />
                 </div>
 
-                <div>
+                <div> 
                     <label for="document_location">Document Location</label>
                     <input
                         type="text"
@@ -68,6 +68,10 @@
                     />
                 </div>
 
+                <div>
+                    <img src="{{ self_help_articles.article_image }}">
+                </div>
+                
                 <button class="submitButton">Edit Article</button>
             </form>
 

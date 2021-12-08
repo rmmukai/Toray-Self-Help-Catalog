@@ -37,7 +37,7 @@
             </div>
             {% endif %}
 
-            <form action="/admin_page/all_self_help_articles/create_article" method="post">
+            <form action="/admin_page/all_self_help_articles/create_article" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
 
                 <div>
@@ -62,6 +62,11 @@
                         name="document_location"
                         id="document_location"
                     />
+                </div>
+
+                <div>
+                    <label for="article_image">Article Image</label>
+                    <input type="file" name="article_image" id="article_image" accept="image/*"/>
                 </div>
 
                 <button class="submitButton">Add Article</button>
