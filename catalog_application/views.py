@@ -30,6 +30,7 @@ def add_self_help_article(request):
 
 
 def create_article(request):
+    print(request.FILES)
     # Error/validator messages found in models.py.
     errors = SelfHelpArticle.objects.self_help_article_validator(request.POST)
     if len(errors) > 0:
@@ -42,6 +43,7 @@ def create_article(request):
             last_updated_by=request.POST['last_updated_by'],
             description=request.POST['description'],
             document_location=request.POST['document_location'],
+            article_image=request.FILES['article_image'],
         )
         return redirect('/admin_page/all_self_help_articles')
 
@@ -69,12 +71,15 @@ def update_articles(request, self_help_article_id):
         post_last_updated_by = request.POST.get('last_updated_by')
         post_description = request.POST.get('description')
         post_document_location = request.POST.get('document_location')
+        post_article_image = request.FILES.get('article_image')
+
 
         # Update the fields in the database object.
         db_self_help_article.title = post_title
         db_self_help_article.last_updated_by = post_last_updated_by
         db_self_help_article.description = post_description
         db_self_help_article.document_location = post_document_location
+        db_self_help_article.article_image = post_article_image
 
         db_self_help_article.save()
 
