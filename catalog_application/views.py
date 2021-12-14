@@ -30,7 +30,6 @@ def add_self_help_article(request):
 
 
 def create_article(request):
-    print(request.FILES)
     # Error/validator messages found in models.py.
     errors = SelfHelpArticle.objects.self_help_article_validator(request.POST)
     if len(errors) > 0:
@@ -43,6 +42,7 @@ def create_article(request):
             last_updated_by=request.POST['last_updated_by'],
             description=request.POST['description'],
             document_location=request.POST['document_location'],
+            # For article_image check settings.py for location of uploaded images. (See MEDIA_ROOT.)
             article_image=request.FILES['article_image'],
         )
         return redirect('/admin_page/all_self_help_articles')

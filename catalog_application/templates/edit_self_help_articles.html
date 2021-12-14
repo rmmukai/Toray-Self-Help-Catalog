@@ -40,7 +40,7 @@
             </div>
             {% endif %}
 
-            <form action="/admin_page/all_self_help_articles/{{ self_help_articles.id }}/update_articles" method="post">
+            <form action="/admin_page/all_self_help_articles/{{ self_help_articles.id }}/update_articles" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
 
                 <div>
@@ -59,7 +59,8 @@
                 </div>
 
                 <div> 
-                    <label for="document_location">Document Location</label>
+                    <p>Go to file: <a href="{{ self_help_articles.document_location }}">{{ self_help_articles.document_location }}</a> </p>
+                    <label for="document_location">Change Document Location</label>
                     <input
                         type="text"
                         name="document_location"
@@ -70,6 +71,8 @@
 
                 <div>
                     <img src="/images/{{ self_help_articles.article_image }}">
+                    <label for="article_image">Article Image</label>
+                    <input type="file" name="article_image" id="article_image" value="{{ self_help_articles.article_image }}" accept="image/*" />
                 </div>
                 
                 <button class="submit_button">Edit Article</button>
