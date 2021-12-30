@@ -14,16 +14,28 @@
     height: auto;
 }
 
+.home_link {
+    text-decoration: none;
+}
+
 .header .banner {
-    width: 35rem;
-    height: 5rem;
+    width: 18rem;
+    height: auto;
+    padding-bottom: 2rem;
 }
 
 .main_content {
     padding-top: 0.2rem;
 }
 
-.main_content .main_image {
-    width: 30rem;
-    height: auto;
+.suggestion_link {
+    text-decoration: none;
+    color: rgb(0, 64, 152);
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.suggestion_link:hover {
+    text-decoration: underline;
+    color: rgb(0, 50, 119);
 }
