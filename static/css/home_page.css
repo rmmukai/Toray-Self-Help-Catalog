@@ -1,12 +1,18 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #wrapper {
-    width: 1920px;
-    height: 1080px;
+    width: auto;
+    height: auto;
     margin: 8px;
+}
+
+.header {
+    display: inline-block;
+    vertical-align: top;
 }
 
 .header .logo {
@@ -24,18 +30,66 @@
     padding-bottom: 2rem;
 }
 
+.link_wrapper {
+    display: inline-block;
+    vertical-align: top;
+    float: right;
+    padding-top: 3.1rem;
+    padding-right: 2rem;
+}
+
+.link_wrapper a {
+    text-decoration: none;
+    color: rgb(0, 64, 152);
+    font-size: 13px;
+}
+
+.link_wrapper a:hover {
+    text-decoration: underline;
+    color: rgb(0, 50, 119);
+}
+
+.link_wrapper .cherwell_link {
+    padding-right: 2rem;
+}
+
 .main_content {
     padding-top: 0.2rem;
 }
 
-.suggestion_link {
-    text-decoration: none;
-    color: rgb(0, 64, 152);
-    font-size: 13px;
-    font-family: Arial, Helvetica, sans-serif;
+.main_content .article_entry {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    border: rgb(0, 64, 152) solid;
+    border-radius: 5px;
+    margin-left: 1.5rem;
+    margin-bottom: 0.7rem;
 }
 
-.suggestion_link:hover {
+.main_content .article_entry p {
+    font-size: 14px;
+}
+
+.main_content .article_entry a {
+    text-decoration: none;
+    color: rgb(0, 50, 119);
+    font-size: 14px;
+}
+
+.main_content .article_entry a:hover {
     text-decoration: underline;
     color: rgb(0, 50, 119);
+}
+
+.side_content {
+    display: inline-block;
+    vertical-align: top;
+    width: 25%;
+    height: auto;
+}
+
+.side_content img {
+    width: 25%;
+    height: auto;
 }

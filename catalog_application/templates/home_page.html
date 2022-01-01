@@ -26,14 +26,28 @@
                 />
             </div>
 
+            <div class="link_wrapper">
+                <a class="cherwell_link" href="https://www.google.com/"
+                    >Cherwell
+                </a>
+
+                <a class="suggestion_link" href="/home_page/suggestion_message"
+                    >Have a suggestion?
+                </a>
+            </div>
+
             <div class="main_content">
-                <div>
-                    <a
-                        class="suggestion_link"
-                        href="/home_page/suggestion_message"
-                        >Have a suggestion?</a
-                    >
+                {% for articles in self_help_articles %}
+                <div class="article_entry">
+                    <h3>{{ articles.title }}</h3>
+                    <p>{{ articles.description }}</p>
+                    <a href="{{ articles.document_location }}">View Document</a>
                 </div>
+                {% endfor %}
+            </div>
+
+            <div class="side_content">
+                <img src="{% static 'images\computer_image.jpg' %}" />
             </div>
         </div>
     </body>

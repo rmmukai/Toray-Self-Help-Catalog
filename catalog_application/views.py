@@ -15,7 +15,10 @@ def admin_page(request):
 
 
 def home_page(request):
-    return render(request, 'home_page.html')
+    context = {
+        'self_help_articles': SelfHelpArticle.objects.all()
+    }
+    return render(request, 'home_page.html', context)
 
 
 def all_self_help_articles(request):
