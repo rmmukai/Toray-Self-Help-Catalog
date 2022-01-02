@@ -26,14 +26,21 @@
                 />
             </div>
 
-            <div class="link_wrapper">
-                <a class="cherwell_link" href="https://www.google.com/"
-                    >Cherwell
-                </a>
+            <div class="top_content">
+                <div class="top_content_info">
+                    <h2>Toray CMA IT Self-Help Catalog</h2>
 
-                <a class="suggestion_link" href="/home_page/suggestion_message"
-                    >Have a suggestion?
-                </a>
+                    <p>
+                        Here you can find useful IT related information and
+                        guides.
+                        <br />
+                        If you have any question please contact Help Desk via
+                        email at helpdesk@toraycma.com or call extension 1167.
+                        <br />
+                        Thank you!
+                    </p>
+                </div>
+                <img src="{% static 'images\computer_image.jpg' %}" />
             </div>
 
             <div class="main_content">
@@ -46,8 +53,20 @@
                 {% endfor %}
             </div>
 
-            <div class="side_content">
-                <img src="{% static 'images\computer_image.jpg' %}" />
+            <div class="link_wrapper">
+                <h4>Helpful links below:</h4>
+
+                <a class="suggestion_link" href="/home_page/suggestion_message"
+                    >Have a suggestion?
+                </a>
+
+                <a class="CATSWeb_link" href="https://www.google.com/"
+                    >CATSWeb
+                </a>
+
+                <a class="cherwell_link" href="https://www.google.com/"
+                    >Cherwell
+                </a>
             </div>
         </div>
     </body>
