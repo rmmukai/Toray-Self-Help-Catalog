@@ -16,7 +16,7 @@
     <body>
         <div id="wrapper">
             <div class="header">
-                <a href="/home_page">
+                <a class="home_link" href="/home_page">
                     <img
                         class="logo"
                         src="{% static 'images\toray_logo.jpg' %}"
@@ -29,53 +29,80 @@
                 />
             </div>
 
-            <div class="main_content">
-                <div class="side_nav">
-                    <a href="/home_page/suggestion_message"
-                        >Have a suggestion?</a
-                    >
-                </div>
+            <div class="top_content">
+                <div class="top_content_info">
+                    <h2>Have a Suggestion?</h2>
 
-                <div>
-                    <h1>Have a suggestion?</h1>
                     <p>
-                        If you have any suggestions of information you want to
-                        see in the IT Self Help Catalog please submit a
-                        suggestion and one of our IT staff will address it.
+                        Here you can submit suggestions for what you would like
+                        to see in the IT Self-Help Catalog.
+                        <br />
+                        Please make sure you write a detailed description of you
+                        suggestion and submit your name.
+                        <br />
+                        If you have any question please contact Help Desk via
+                        email at helpdesk@toraycma.com or call extension 1167.
+                        <br />
+                        Thank you!
                     </p>
-
-                    <!-- This is where the error messages will appear -->
-                    {% if messages %}
-                    <div>
-                        {% for message in messages %}
-                        <p>- {{message}} -</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-
-                    <form action="/home_page/create_suggestion" method="post">
-                        {% csrf_token %}
-
-                        <div>
-                            <label for="message"
-                                >Please type a detailed description of your
-                                suggestion</label
-                            >
-                            <input type="text" name="message" id="message" />
-                        </div>
-
-                        <div>
-                            <label for="submitted_by">Submitted By</label>
-                            <input
-                                type="text"
-                                name="submitted_by"
-                                id="submitted_by"
-                            />
-                        </div>
-
-                        <button class="submitButton">Send Suggestion</button>
-                    </form>
                 </div>
+
+                <img src="{% static 'images\suggestion_box.jpg' %}" />
+            </div>
+
+            <div class="main_content">
+                <!-- This is where the error messages will appear -->
+                {% if messages %}
+                <div class="error_messages">
+                    {% for message in messages %}
+                    <p>- {{message}}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <form action="/home_page/create_suggestion" method="post">
+                    {% csrf_token %}
+
+                    <div>
+                        <label for="submitted_by">Submitted By:</label>
+                        <input
+                            type="text"
+                            name="submitted_by"
+                            class="submitted_by"
+                        />
+                    </div>
+
+                    <div>
+                        <label for="message"
+                            >Please type a detailed description of your
+                            suggestion:</label
+                        >
+                        <textarea
+                            name="message"
+                            class="message"
+                            cols="30"
+                            rows="10"
+                        ></textarea>
+                    </div>
+
+                    <button class="submit_button">Send Suggestion</button>
+                </form>
+            </div>
+
+            <div class="link_wrapper">
+                <h4>Helpful links below:</h4>
+
+                <a class="suggestion_link" href="/home_page/suggestion_message"
+                    >Have a suggestion?
+                </a>
+
+                <a class="CATSWeb_link" href="https://www.google.com/"
+                    >CATSWeb
+                </a>
+
+                <a class="cherwell_link" href="https://www.google.com/"
+                    >Cherwell
+                </a>
             </div>
         </div>
     </body>

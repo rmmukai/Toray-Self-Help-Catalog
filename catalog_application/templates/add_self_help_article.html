@@ -15,7 +15,7 @@
     <body>
         <div id="wrapper">
             <div class="header">
-                <a href="/home_page">
+                <a class="home_link" href="/home_page">
                     <img
                         class="logo"
                         src="{% static 'images\toray_logo.jpg' %}"
@@ -28,64 +28,105 @@
                 />
             </div>
 
-            <h1>Add a Self Help Article</h1>
+            <div class="top_content">
+                <div class="top_content_info">
+                    <h2>Add a Self-Help Article</h2>
 
-            <!-- This is where the error messages will appear -->
-            {% if messages %}
-            <div>
-                {% for message in messages %}
-                <p>- {{message}} -</p>
-                {% endfor %}
+                    <p>
+                        Here you can add a self-help article to the catalog.
+                        <br />
+                        Please make sure you fill out all of the information.
+                        <br />
+                        Thank you!
+                    </p>
+                </div>
+
+                <img src="{% static 'images\tech.jpg' %}" />
             </div>
-            {% endif %}
 
-            <form
-                action="/admin_page/all_self_help_articles/create_article"
-                method="post"
-                enctype="multipart/form-data"
-            >
-                {% csrf_token %}
-
-                <div>
-                    <label for="title">Title of Article</label>
-                    <input type="text" name="title" id="title" />
+            <div class="main_content">
+                <!-- This is where the error messages will appear -->
+                {% if messages %}
+                <div class="error_messages">
+                    {% for message in messages %}
+                    <p>- {{message}}</p>
+                    {% endfor %}
                 </div>
+                {% endif %}
 
-                <div>
-                    <label for="last_updated_by">Created By</label>
-                    <input
-                        type="text"
-                        name="last_updated_by"
-                        id="last_updated_by"
-                    />
-                </div>
+                <form
+                    action="/admin_page/all_self_help_articles/create_article"
+                    method="post"
+                    enctype="multipart/form-data"
+                >
+                    {% csrf_token %}
 
-                <div>
-                    <label for="description">Description</label>
-                    <input type="text" name="description" id="description" />
-                </div>
+                    <div>
+                        <label for="title">Title of Article:</label>
+                        <input type="text" name="title" id="title" />
+                    </div>
 
-                <div>
-                    <label for="document_location">Document Location</label>
-                    <input
-                        type="text"
-                        name="document_location"
-                        id="document_location"
-                    />
-                </div>
+                    <div>
+                        <label for="last_updated_by">Created By:</label>
+                        <input
+                            type="text"
+                            name="last_updated_by"
+                            id="last_updated_by"
+                        />
+                    </div>
 
-                <div>
-                    <label for="article_image">Article Image</label>
-                    <input
-                        type="file"
-                        name="article_image"
-                        id="article_image"
-                        accept="image/*"
-                    />
-                </div>
+                    <div>
+                        <label for="description">Description:</label>
+                        <textarea
+                            name="description"
+                            class="description"
+                            cols="30"
+                            rows="10"
+                        ></textarea>
+                    </div>
 
-                <button class="submitButton">Add Article</button>
-            </form>
+                    <div>
+                        <label for="document_location"
+                            >Document Location:</label
+                        >
+                        <input
+                            type="text"
+                            name="document_location"
+                            id="document_location"
+                        />
+                    </div>
+
+                    <div>
+                        <label for="article_image">Article Image:</label>
+                        <input
+                            type="file"
+                            name="article_image"
+                            id="article_image"
+                            accept="image/*"
+                        />
+                    </div>
+
+                    <button class="submit_button">Add Article</button>
+                </form>
+            </div>
+
+            <div class="link_wrapper">
+                <h4>Quick Admin Links:</h4>
+
+                <a class="admin_page_link" href="/admin_page">Admin Page</a>
+
+                <a
+                    class="all_article_link"
+                    href="/admin_page/all_self_help_articles"
+                    >All Self-Help Articles
+                </a>
+
+                <a
+                    class="add_article_link"
+                    href="/admin_page/all_self_help_articles/add_self_help_article"
+                    >Add Self-Help Article</a
+                >
+            </div>
         </div>
     </body>
 </html>

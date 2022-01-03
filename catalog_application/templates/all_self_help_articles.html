@@ -16,7 +16,7 @@
     <body>
         <div id="wrapper">
             <div class="header">
-                <a href="/home_page">
+                <a class="home_link" href="/home_page">
                     <img
                         class="logo"
                         src="{% static 'images\toray_logo.jpg' %}"
@@ -29,14 +29,36 @@
                 />
             </div>
 
+            <div class="top_content">
+                <div class="top_content_info">
+                    <h2>Add Self-Help Article</h2>
+
+                    <p>
+                        Here you can add, edit ,and delete self-help articles to
+                        the catalog.
+                        <br />
+                        The articles are stored on the server for end-users to
+                        access. They are not submitted to the database.
+                        <br />
+                        Thank you!
+                    </p>
+                </div>
+                <img src="{% static 'images\it_pic.jfif' %}" />
+            </div>
+
             <div class="main_content">
-                <a
-                    href="/admin_page/all_self_help_articles/add_self_help_article"
-                    >Add Self Help Article</a
+                <form
+                    action="/admin_page/all_self_help_articles/add_self_help_article"
                 >
+                    <input
+                        class="add_article_button"
+                        type="submit"
+                        value="Add Self Help Article"
+                    />
+                </form>
 
                 <div class="all_articles">
-                    <table class="all_articles">
+                    <table class="all_articles_section">
                         <thead class="column_names">
                             <tr>
                                 <th>Name of Article</th>
@@ -52,16 +74,39 @@
                                 <th>{{ articles.last_updated_by }}</th>
                                 <th>{{ articles.document_location}}</th>
                                 <td>
-                                    <a
-                                        href="/admin_page/all_self_help_articles/{{ articles.id }}/edit_articles"
-                                        >Edit</a
+                                    <form
+                                        action="/admin_page/all_self_help_articles/{{ articles.id }}/edit_articles"
                                     >
+                                        <input
+                                            class="edit_button"
+                                            type="submit"
+                                            value="Edit Article"
+                                        />
+                                    </form>
                                 </td>
                             </tr>
                         </tbody>
                         {% endfor %}
                     </table>
                 </div>
+            </div>
+
+            <div class="link_wrapper">
+                <h4>Quick Admin Links:</h4>
+
+                <a class="admin_page_link" href="/admin_page">Admin Page</a>
+
+                <a
+                    class="all_article_link"
+                    href="/admin_page/all_self_help_articles"
+                    >All Self-Help Articles
+                </a>
+
+                <a
+                    class="add_article_link"
+                    href="/admin_page/all_self_help_articles/add_self_help_article"
+                    >Add Self-Help Article</a
+                >
             </div>
         </div>
     </body>

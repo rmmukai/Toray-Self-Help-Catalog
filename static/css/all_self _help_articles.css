@@ -1,12 +1,20 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #wrapper {
-    width: 1920px;
-    height: 1080px;
+    width: auto;
+    height: auto;
     margin: 8px;
+}
+
+.header {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    height: auto;
 }
 
 .header .logo {
@@ -14,20 +22,98 @@
     height: auto;
 }
 
-.banner {
-    width: 35rem;
-    height: 5rem;
+.home_link {
+    text-decoration: none;
+}
+
+.header .banner {
+    width: 18rem;
+    height: auto;
+    padding-bottom: 2rem;
+}
+
+.top_content {
+    display: flex;
+    background: rgb(230, 227, 227);
+    margin-bottom: 1rem;
+}
+
+.top_content .top_content_info {
+    display: inline-block;
+    vertical-align: top;
+    margin: auto;
+}
+
+.top_content img {
+    width: 28%;
+    height: 100%;
 }
 
 .main_content {
-    padding-top: 0.2rem;
-}
-
-.main_content .main_image {
-    width: 30rem;
+    display: inline-block;
+    vertical-align: top;
+    width: 60%;
     height: auto;
+    margin-left: 1.5rem;
 }
 
-.hidden {
-    display: none;
+.main_content .add_article_button,
+.edit_button {
+    color: white;
+    background: rgb(0, 50, 119);
+    border-radius: 10px;
+    width: 125px;
+    height: 25px;
+}
+
+.main_content .all_articles {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    height: auto;
+    border: rgb(0, 64, 152) solid;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px #ccc;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    background: lightblue;
+}
+
+.main_content .all_articles table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.main_content .all_articles table,
+th,
+td {
+    border: grey solid;
+    padding: 0.3rem;
+}
+
+.link_wrapper {
+    display: inline-block;
+    vertical-align: top;
+    border: rgb(0, 64, 152) solid;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px #ccc;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+    margin-left: 5rem;
+}
+
+.link_wrapper a {
+    text-decoration: none;
+    color: rgb(0, 64, 152);
+    font-size: 13px;
+    display: block;
+    padding-top: 0.5rem;
+}
+
+.link_wrapper a:hover {
+    text-decoration: underline;
+    color: rgb(0, 50, 119);
 }

@@ -13,7 +13,7 @@
     <body>
         <div id="wrapper">
             <div class="header">
-                <a href="/home_page">
+                <a class="home_link" href="/home_page">
                     <img
                         class="logo"
                         src="{% static 'images\toray_logo.jpg' %}"
@@ -26,23 +26,40 @@
                 />
             </div>
 
+            <div class="top_content">
+                <div class="top_content_info">
+                    <h2>IT Admin Page</h2>
+
+                    <p>
+                        Here is the administration area for the Self-Help
+                        Catalog.
+                        <br />
+                        You can add articles/guides to the catalog from here as
+                        well as view suggestion messages submitted by other
+                        users.
+                        <br />
+                        Thank you!
+                    </p>
+                </div>
+                <img src="{% static 'images\team.jpg' %}" />
+            </div>
+
             <div class="main_content">
                 <div class="self_help_article_section">
-                    <h3>Self Help Articles</h3>
+                    <h3>Self Help Articles:</h3>
 
                     <p>
                         Use the below link to add, delete, and edit self help
                         articles in the catalog.
                     </p>
 
-                    <a href="/admin_page/all_self_help_articles"
-                        >Self Help Articles</a
-                    >
+                    <form action="/admin_page/all_self_help_articles">
+                        <input class="self_help_article_button" type="submit" value="Self Help Articles" />
+                    </form>
                 </div>
-            </div>
 
             <div class="suggestion_message_section">
-                <h3>Suggestion Messages</h3>
+                <h3>Suggestion Messages:</h3>
 
                 <p>
                     These are notes, suggestions, and messages from our users to
@@ -65,10 +82,9 @@
                                 <th>{{ message.submitted_by }}</th>
                                 <th>{{ message.created_at }}</th>
                                 <td>
-                                    <a
-                                        href="/admin_page/{{ message.id }}/view_suggestion_message"
-                                        >View Message</a
-                                    >
+                                    <form action="/admin_page/{{ message.id }}/view_suggestion_message">
+                                        <input class="view_message_button" type="submit" value="View Message" />
+                                    </form>
                                 </td>
                             </tr>
                         </tbody>

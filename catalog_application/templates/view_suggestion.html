@@ -13,7 +13,7 @@
     <body>
         <div id="wrapper">
             <div class="header">
-                <a href="/home_page">
+                <a class="home_link" href="/home_page">
                     <img
                         class="logo"
                         src="{% static 'images\toray_logo.jpg' %}"
@@ -26,37 +26,67 @@
                 />
             </div>
 
+            <div class="top_content">
+                <div class="top_content_info">
+                    <h2>Suggestion Messages</h2>
+
+                    <p>
+                        You are viewing a suggestion message submitted by an
+                        end-user.
+                        <br />
+                        Please determine how to proceed in addressing the
+                        suggestion.
+                        <br />
+                        Thank you!
+                    </p>
+                </div>
+                <img src="{% static 'images\teamwork.jpg' %}" />
+            </div>
+
             <div class="main_content">
                 <div class="suggestion_message">
-                    <h6>
-                        Submitted By: {{ suggestion_messages.submitted_by }}
-                    </h6>
-                    <h6>
-                        Date Submitted: {{ suggestion_messages.created_at }}
-                    </h6>
-
-                    <div>
+                    <div class="message_sent">
                         <p>{{ suggestion_messages.message }}</p>
                     </div>
-                </div>
 
-                <button class="delete_btn">Delete Message</button>
+                    <h5>
+                        Submitted by: {{ suggestion_messages.submitted_by }}
+                    </h5>
+                    <h5>Submitted at: {{ suggestion_messages.created_at }}</h5>
+
+                    <button class="delete_btn">Delete Message</button>
+                </div>
 
                 <div class="delete_window hidden">
                     <button class="close_btn">&times;</button>
-                    <p>
-                        Would you like to delete this message? Deleting this
-                        message will permanentely this message.
-                    </p>
+                    <p>Would you like to delete this message?</p>
 
-                    <button class="delete_link">
-                        <a
-                            href="/admin_page/{{ suggestion_messages.id }}/delete_suggestion_message"
-                            >Yes</a
-                        >
-                    </button>
+                    <form
+                        action="/admin_page/{{ suggestion_messages.id }}/delete_suggestion_message"
+                    >
+                        <input class="yes_btn" type="submit" value="Yes" />
+                    </form>
+
                     <button class="no_btn">No</button>
                 </div>
+            </div>
+
+            <div class="link_wrapper">
+                <h4>Quick Admin Links:</h4>
+
+                <a class="admin_page_link" href="/admin_page">Admin Page</a>
+
+                <a
+                    class="all_article_link"
+                    href="/admin_page/all_self_help_articles"
+                    >All Self-Help Articles
+                </a>
+
+                <a
+                    class="add_article_link"
+                    href="/admin_page/all_self_help_articles/add_self_help_article"
+                    >Add Self-Help Article</a
+                >
             </div>
         </div>
         <div class="overlay hidden"></div>

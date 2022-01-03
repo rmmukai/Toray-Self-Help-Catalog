@@ -15,7 +15,7 @@
     <body>
         <div id="wrapper">
             <div class="header">
-                <a href="/home_page">
+                <a class="home_link" href="/home_page">
                     <img
                         class="logo"
                         src="{% static 'images\toray_logo.jpg' %}"
@@ -28,100 +28,140 @@
                 />
             </div>
 
-            <h1>Edit {{ self_help_articles.title }}</h1>
+            <div class="top_content">
+                <div class="top_content_info">
+                    <h2>Editting {{ self_help_articles.title }}</h2>
 
-            <!-- This is where the error messages will appear -->
-            {% if messages %}
-            <div>
-                {% for message in messages %}
-                <p>- {{message}} -</p>
-                {% endfor %}
-            </div>
-            {% endif %}
-
-            <form
-                action="/admin_page/all_self_help_articles/{{ self_help_articles.id }}/update_articles"
-                method="post"
-                enctype="multipart/form-data"
-            >
-                {% csrf_token %}
-
-                <div>
-                    <label for="title">Title of Article</label>
-                    <input
-                        type="text"
-                        name="title"
-                        id="title"
-                        value="{{ self_help_articles.title }}"
-                    />
-                </div>
-
-                <div>
-                    <label for="last_updated_by">Updated By</label>
-                    <input
-                        type="text"
-                        name="last_updated_by"
-                        id="last_updated_by"
-                        value="{{ self_help_articles.last_updated_by }}"
-                    />
-                </div>
-
-                <div>
-                    <label for="description">Description</label>
-                    <input
-                        type="text"
-                        name="description"
-                        id="description"
-                        value="{{ self_help_articles.description }}"
-                    />
-                </div>
-
-                <div>
                     <p>
-                        Go to file:
-                        <a href="{{ self_help_articles.document_location }}"
-                            >{{ self_help_articles.document_location }}</a
-                        >
+                        You are now editing the above article/guide.
+                        <br />
+                        Please make sure you fill out all of the information.
+                        <br />
+                        All the information that is already filled in the
+                        textboxes is what is actively in the database for that
+                        entry.
+                        <br />
+                        Thank you!
                     </p>
-                    <label for="document_location"
-                        >Change Document Location</label
-                    >
-                    <input
-                        type="text"
-                        name="document_location"
-                        id="document_location"
-                        value="{{ self_help_articles.document_location }}"
-                    />
                 </div>
 
-                <div>
-                    <img src="/images/{{ self_help_articles.article_image }}" />
-                    <label for="article_image">Article Image</label>
-                    <input
-                        type="file"
-                        name="article_image"
-                        id="article_image"
-                        value="{{ self_help_articles.article_image }}"
-                        accept="image/*"
-                    />
+                <img src="{% static 'images\tech.jpg' %}" />
+            </div>
+
+            <div class="main_content">
+                <!-- This is where the error messages will appear -->
+                {% if messages %}
+                <div class="error_messages">
+                    {% for message in messages %}
+                    <p>- {{message}}</p>
+                    {% endfor %}
                 </div>
+                {% endif %}
 
-                <button class="submit_button">Edit Article</button>
-            </form>
+                <form
+                    action="/admin_page/all_self_help_articles/{{ self_help_articles.id }}/update_articles"
+                    method="post"
+                    enctype="multipart/form-data"
+                >
+                    {% csrf_token %}
 
-            <button class="delete_btn">Delete Article</button>
+                    <div>
+                        <label for="title">Title of Article:</label>
+                        <input
+                            type="text"
+                            name="title"
+                            id="title"
+                            value="{{ self_help_articles.title }}"
+                        />
+                    </div>
 
-            <div class="delete_window hidden">
-                <button class="close_btn">&times;</button>
-                <p>Would you like to delete this article?</p>
+                    <div>
+                        <label for="last_updated_by">Updated By:</label>
+                        <input
+                            type="text"
+                            name="last_updated_by"
+                            id="last_updated_by"
+                            value="{{ self_help_articles.last_updated_by }}"
+                        />
+                    </div>
 
-                <button class="delete_link">
-                    <a
-                        href="/admin_page/all_self_help_articles/{{ self_help_articles.id }}/delete_articles"
-                        >Yes</a
+                    <div>
+                        <label for="description">Description:</label>
+                        <input
+                            type="text"
+                            name="description"
+                            id="description"
+                            value="{{ self_help_articles.description }}"
+                        />
+                    </div>
+
+                    <div>
+                        <label for="document_location"
+                            >Change Document Location:</label
+                        >
+                        <input
+                            type="text"
+                            name="document_location"
+                            id="document_location"
+                            value="{{ self_help_articles.document_location }}"
+                        />
+                        <p>
+                            Go to file:
+                            <a href="{{ self_help_articles.document_location }}"
+                                >{{ self_help_articles.document_location }}</a
+                            >
+                        </p>
+                    </div>
+
+                    <div>
+                        <label for="article_image">Article Image:</label>
+                        <input
+                            type="file"
+                            name="article_image"
+                            id="article_image"
+                            value="{{ self_help_articles.article_image }}"
+                            accept="image/*"
+                        />
+                        <img
+                            src="/images/{{ self_help_articles.article_image }}"
+                        />
+                    </div>
+
+                    <button class="submit_button">Edit Article</button>
+                </form>
+
+                <button class="delete_btn">Delete Article</button>
+
+                <div class="delete_window hidden">
+                    <button class="close_btn">&times;</button>
+                    <p>Would you like to delete this article?</p>
+
+                    <form
+                        action="/admin_page/all_self_help_articles/{{ self_help_articles.id }}/delete_articles"
                     >
-                </button>
-                <button class="no_btn">No</button>
+                        <input class="yes_btn" type="submit" value="Yes" />
+                    </form>
+
+                    <button class="no_btn">No</button>
+                </div>
+            </div>
+
+            <div class="link_wrapper">
+                <h4>Quick Admin Links:</h4>
+
+                <a class="admin_page_link" href="/admin_page">Admin Page</a>
+
+                <a
+                    class="all_article_link"
+                    href="/admin_page/all_self_help_articles"
+                    >All Self-Help Articles
+                </a>
+
+                <a
+                    class="add_article_link"
+                    href="/admin_page/all_self_help_articles/add_self_help_article"
+                    >Add Self-Help Article</a
+                >
             </div>
         </div>
         <div class="overlay hidden"></div>

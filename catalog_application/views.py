@@ -106,7 +106,7 @@ def create_suggestion(request):
     if len(errors) > 0:
         for key, value in errors.items():
             messages.error(request, value)
-        return redirect('/home_page/send_suggestion_message')
+        return redirect('/home_page/suggestion_message')
     else:
         new_suggestion = SuggestionMessage.objects.create(
             submitted_by=request.POST['submitted_by'],

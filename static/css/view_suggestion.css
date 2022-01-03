@@ -1,12 +1,20 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #wrapper {
-    width: 1920px;
-    height: 1080px;
+    width: auto;
+    height: auto;
     margin: 8px;
+}
+
+.header {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    height: auto;
 }
 
 .header .logo {
@@ -14,18 +22,67 @@
     height: auto;
 }
 
+.home_link {
+    text-decoration: none;
+}
+
 .header .banner {
-    width: 35rem;
-    height: 5rem;
+    width: 18rem;
+    height: auto;
+    padding-bottom: 2rem;
+}
+
+.top_content {
+    display: flex;
+    background: rgb(230, 227, 227);
+    margin-bottom: 1rem;
+}
+
+.top_content .top_content_info {
+    display: inline-block;
+    vertical-align: top;
+    margin: auto;
+}
+
+.top_content img {
+    width: 20%;
+    height: 100%;
 }
 
 .main_content {
-    padding-top: 0.2rem;
+    display: inline;
+    margin-left: 1.5rem;
 }
 
-.main_content .main_image {
-    width: 30rem;
+.main_content .delete_btn {
+    color: white;
+    background: rgb(0, 50, 119);
+    border-radius: 10px;
+    width: 125px;
+    height: 25px;
+    margin-top: 0.5rem;
+}
+
+.main_content .suggestion_message {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
     height: auto;
+    border: rgb(0, 64, 152) solid;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px #ccc;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 3.5rem;
+    background: lightblue;
+}
+
+.main_content .suggestion_message .message_sent {
+    padding-bottom: 1rem;
+}
+
+.main_content .suggestion_message h5 {
+    opacity: 40%;
 }
 
 .hidden {
@@ -54,4 +111,58 @@
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(3px);
     z-index: 5;
+}
+
+.main_content .delete_window p {
+    margin-bottom: 1.5rem;
+    font-size: 15pt;
+}
+
+.main_content .delete_window .close_btn {
+    position: absolute;
+    top: 1.2rem;
+    right: 2rem;
+    font-size: 3rem;
+    color: #333;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.main_content .delete_window form {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 5rem;
+}
+
+.main_content .delete_window .yes_btn,
+.no_btn {
+    color: white;
+    background: rgb(0, 50, 119);
+    border-radius: 10px;
+    width: 125px;
+    height: 25px;
+    margin-top: 0.5rem;
+}
+
+.link_wrapper {
+    display: inline-block;
+    vertical-align: top;
+    border: rgb(0, 64, 152) solid;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px #ccc;
+    padding: 1.5rem;
+}
+
+.link_wrapper a {
+    text-decoration: none;
+    color: rgb(0, 64, 152);
+    font-size: 13px;
+    display: block;
+    padding-top: 0.5rem;
+}
+
+.link_wrapper a:hover {
+    text-decoration: underline;
+    color: rgb(0, 50, 119);
 }
