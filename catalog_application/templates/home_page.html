@@ -24,6 +24,20 @@
                     class="banner"
                     src="{% static 'images\toray_banner.jpg' %}"
                 />
+
+                <div class="search_bar">
+                    <form method="POST" action="{% url 'searched_db' %}">
+                        {% csrf_token %}
+    
+                        <input
+                            class="search_box"
+                            type="search"
+                            placeholder="Search Articles"
+                            name="searched"
+                        />
+                        <button class="search_submit">Search</button>
+                    </form>
+                </div>
             </div>
 
             <div class="top_content">

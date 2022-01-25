@@ -34,8 +34,9 @@
 
 .top_content {
     display: flex;
-    background: rgb(230, 227, 227);
+    background: rgb(0,64,152);
     margin-bottom: 1rem;
+    color: white;
 }
 
 .top_content .top_content_info {
@@ -57,8 +58,15 @@
     margin-left: 1.5rem;
 }
 
-.main_content .add_article_button,
-.edit_button {
+.main_content .add_article_button{
+    color: white;
+    background: rgb(0, 50, 119);
+    border-radius: 10px;
+    width: 150px;
+    height: 25px;
+}
+
+.main_content .edit_button {
     color: white;
     background: rgb(0, 50, 119);
     border-radius: 10px;

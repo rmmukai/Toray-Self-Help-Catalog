@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse
 from .models import *
 from django.contrib import messages
+from django.db.models import Q
 
 
 def desktop_links(request):
@@ -16,7 +17,7 @@ def admin_page(request):
 
 def home_page(request):
     context = {
-        'self_help_articles': SelfHelpArticle.objects.all()
+        'self_help_articles': SelfHelpArticle.objects.all().order_by('title')
     }
     return render(request, 'home_page.html', context)
 
@@ -45,8 +46,6 @@ def create_article(request):
             last_updated_by=request.POST['last_updated_by'],
             description=request.POST['description'],
             document_location=request.POST['document_location'],
-            # For article_image check settings.py for location of uploaded images. (See MEDIA_ROOT.)
-            article_image=request.FILES['article_image'],
         )
         return redirect('/admin_page/all_self_help_articles')
 
@@ -74,15 +73,12 @@ def update_articles(request, self_help_article_id):
         post_last_updated_by = request.POST.get('last_updated_by')
         post_description = request.POST.get('description')
         post_document_location = request.POST.get('document_location')
-        post_article_image = request.FILES.get('article_image')
-
 
         # Update the fields in the database object.
         db_self_help_article.title = post_title
         db_self_help_article.last_updated_by = post_last_updated_by
         db_self_help_article.description = post_description
         db_self_help_article.document_location = post_document_location
-        db_self_help_article.article_image = post_article_image
 
         db_self_help_article.save()
 
@@ -130,3 +126,12 @@ def delete_suggestion_message(request, suggestion_message_id):
 
     return redirect('/admin_page')
 
+
+def searched_db(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        self_help_articles = SelfHelpArticle.objects.filter(Q(title__icontains=searched) | Q(description__icontains=searched)).order_by('title')
+
+        return render(request, 'searched_db.html', {'searched': searched, 'self_help_articles': self_help_articles})
+    else:
+        return render(request, 'searched_db.html')

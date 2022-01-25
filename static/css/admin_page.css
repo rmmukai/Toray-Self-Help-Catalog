@@ -34,8 +34,9 @@
 
 .top_content {
     display: flex;
-    background: rgb(230, 227, 227);
+    background: rgb(0,64,152);
     margin-bottom: 1rem;
+    color: white;
 }
 
 .top_content .top_content_info {

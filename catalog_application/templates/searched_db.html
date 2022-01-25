@@ -6,11 +6,8 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            rel="stylesheet"
-            href="{% static 'css\send_suggestion_message.css' %}"
-        />
-        <title>Send Suggestions</title>
+        <link rel="stylesheet" href="{% static 'css\searched_db.css' %}" />
+        <title>IT Self-Help Catalog</title>
     </head>
 
     <body>
@@ -45,14 +42,10 @@
 
             <div class="top_content">
                 <div class="top_content_info">
-                    <h2>Have a Suggestion?</h2>
+                    <h2>Article Search</h2>
 
                     <p>
-                        Here you can submit suggestions for what you would like
-                        to see in the IT Self-Help Catalog.
-                        <br />
-                        Please make sure you write a detailed description of you
-                        suggestion and submit your name.
+                        Please see below for your search results.
                         <br />
                         If you have any question please contact Help Desk via
                         email at helpdesk@toraycma.com or call extension 1167.
@@ -60,47 +53,23 @@
                         Thank you!
                     </p>
                 </div>
-
-                <img src="{% static 'images\suggestion_box.jpg' %}" />
+                <img src="{% static 'images\search_result.jpeg' %}" />
             </div>
 
             <div class="main_content">
-                <!-- This is where the error messages will appear -->
-                {% if messages %}
-                <div class="error_messages">
-                    {% for message in messages %}
-                    <p>- {{message}}</p>
-                    {% endfor %}
-                </div>
+                {% if searched %}
+                    <h3>You searched: {{ searched }}</h3>
+                    <br />
+                    {% for self_help_article in self_help_articles %} 
+                        <div class="article_entry">
+                            <h3>{{ self_help_article.title }}</h3>
+                            <p>{{ self_help_article.description }}</p>
+                            <a href="{{ self_help_article.document_location }}">View Document</a>
+                        </div>
+                    {% endfor %} 
+                {% else %}
+                    <h3>No valid search parameters</h3>
                 {% endif %}
-
-                <form action="/home_page/create_suggestion" method="post">
-                    {% csrf_token %}
-
-                    <div>
-                        <label for="submitted_by">Submitted By:</label>
-                        <input
-                            type="text"
-                            name="submitted_by"
-                            class="submitted_by"
-                        />
-                    </div>
-
-                    <div>
-                        <label for="message"
-                            >Please type a detailed description of your
-                            suggestion:</label
-                        >
-                        <textarea
-                            name="message"
-                            class="message"
-                            cols="30"
-                            rows="10"
-                        ></textarea>
-                    </div>
-
-                    <button class="submit_button">Send Suggestion</button>
-                </form>
             </div>
 
             <div class="link_wrapper">

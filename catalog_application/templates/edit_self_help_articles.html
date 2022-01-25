@@ -87,12 +87,12 @@
 
                     <div>
                         <label for="description">Description:</label>
-                        <input
-                            type="text"
+                        <textarea
                             name="description"
-                            id="description"
-                            value="{{ self_help_articles.description }}"
-                        />
+                            class="description"
+                            cols="30"
+                            rows="10"
+                        >{{ self_help_articles.description }}</textarea>
                     </div>
 
                     <div>
@@ -111,20 +111,6 @@
                                 >{{ self_help_articles.document_location }}</a
                             >
                         </p>
-                    </div>
-
-                    <div>
-                        <label for="article_image">Article Image:</label>
-                        <input
-                            type="file"
-                            name="article_image"
-                            id="article_image"
-                            value="{{ self_help_articles.article_image }}"
-                            accept="image/*"
-                        />
-                        <img
-                            src="/images/{{ self_help_articles.article_image }}"
-                        />
                     </div>
 
                     <button class="submit_button">Edit Article</button>
